@@ -329,7 +329,7 @@ class PhpExcelComponent extends Component {
      */
     public function output($filename = 'export.xlsx', $writer = 'Excel2007') {
         // remove all output
-        ob_end_clean();
+        if (ob_get_contents()) ob_end_clean();
 
         // headers
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
